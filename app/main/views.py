@@ -27,6 +27,7 @@ def disciplinas():
         if Disciplina.query.filter_by(name=nome).first() is None:
             db.session.add(Disciplina(name=nome, semestre=form.semester.data))
             db.session.commit()
+            flash('Disciplina cadastrada com sucesso!')
         else:
             flash('Disciplina já cadastrada.')
         return redirect(url_for('.disciplinas'))
